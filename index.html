@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Internship Detector</title>
+</head>
+<body>
+    <h1>Fake Internship Detector</h1>
+    <form method="post">
+        <textarea name="internship_text" rows="6" cols="60" placeholder="Paste internship message here"></textarea><br><br>
+        <input type="submit" value="Check">
+    </form>
+
+    {% if result %}
+    <h2>Result:</h2>
+    <p><strong>Risk Score:</strong> {{ result["risk_score"] }}</p>
+    <p><strong>Risk Level:</strong> {{ result["risk_level"] }}</p>
+    <p><strong>Label:</strong> {{ result["label"] }}</p>
+    <h3>Reasons:</h3>
+    <ul>
+        {% for r in result["reasons"] %}
+        <li>{{ r }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
