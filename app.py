@@ -11,7 +11,7 @@ def score_text(text: str) -> dict:
         if word.lower() in text.lower():
             reasons.append(f"Keyword: '{word}'")
 
-    score = len(reasons)0
+    score = len(reasons)
     risk_level = "Low"
     if score >= 10:
         risk_level = "High"
@@ -35,4 +35,5 @@ def home():
     return render_template("index.html", result=result)
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=10000)
